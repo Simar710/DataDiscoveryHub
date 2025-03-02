@@ -1,0 +1,23 @@
+<!-- templates/datahub/dataset_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Datasets</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Datasets</h1>
+    <a href="{% url 'dataset-add' %}">Add New Dataset</a>
+    <ul>
+        {% for dataset in datasets %}
+            <li>
+              <strong>{{ dataset.name }}</strong> - {{ dataset.description }}<br>
+              <small>Created at: {{ dataset.created_at|date:"Y-m-d H:i" }}</small>
+            </li>
+        {% empty %}
+            <li>No datasets available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

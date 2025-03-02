@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: ["gunicorn", "data_hub_project.wsgi:application", "--chdir", "/code/data_hub_project", "--bind", "0.0.0.0:8000"]
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: data_hub_discovery
+      POSTGRES_USER: simardeepsingh
+      POSTGRES_PASSWORD: Canada123
+    ports:
+      - "5432:5432"

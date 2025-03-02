@@ -1,0 +1,18 @@
+<!-- templates/datahub/dataset_form.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Dataset</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Add New Dataset</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'dataset-list' %}">Back to list</a>
+</body>
+</html>
