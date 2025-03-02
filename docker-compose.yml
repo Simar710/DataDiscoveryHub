@@ -5,7 +5,7 @@ services:
     build: .
     env_file:
       - .env
-    command: ["gunicorn", "data_hub_project.wsgi:application", "--chdir", "/code/data_hub_project", "--bind", "0.0.0.0:8000"]
+    command: bash -c "python /code/data_hub_project/manage.py migrate && python /code/data_hub_project/manage.py collectstatic --noinput && gunicorn data_hub_project.wsgi:application --chdir /code/data_hub_project --bind 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:

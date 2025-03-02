@@ -102,16 +102,11 @@ DATABASES = {
 docker-compose up --build
 ```
 
-### 2️⃣ Run Migrations Inside the `web` Container
-```bash
-docker-compose exec web python manage.py migrate
-```
-**Note:** If the above step doesn't work, use docker desktop to open the web container terminal and run `python manage.py migrate`
-
 ### 3️⃣ Create a Superuser (For Admin Access)
 ```bash
 docker-compose exec web python manage.py createsuperuser
 ```
+**Note:** If the above step doesn't work, use docker desktop to open the web container terminal and run `python manage.py createsuperuser`
 
 - Now, open `http://127.0.0.1:8000` 🚀
 
@@ -133,8 +128,9 @@ DATABASES = {
 
 | URL            | Purpose                                                       |
 |----------------|---------------------------------------------------------------|
+| **/**  | List all datasets                                           |
+| **/add/**  |Add new datasets                                           |
 | **/admin/**     | Django Admin Panel (Login required)                          |
-| **/datasets/**  | List all datasets                                            |
 | **/sentry-test/** | Manually trigger an error for Sentry                       |
 | **/api/datasets/** | (If DRF is enabled) API to fetch datasets                  |
 
