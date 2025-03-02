@@ -95,18 +95,6 @@ WSGI_APPLICATION = "data_hub_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-#Uncomment the following while running locally
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "data_hub_discovery",
-#         "USER": "simardeepsingh",
-#         "PASSWORD": "Canada123",
-#         "HOST": "localhost",
-#         "PORT": "5432",
-#     }
-# }
-
 #Uncomment following while using docker
 DATABASES = {
     'default': {
