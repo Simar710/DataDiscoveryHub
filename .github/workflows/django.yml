@@ -16,9 +16,9 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_DB: data_hub_discovery
-          POSTGRES_USER: simardeepsingh
-          POSTGRES_PASSWORD: Canada123
+          POSTGRES_DB: ${{ secrets.DB_NAME }}
+          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
         ports:
           - 5432:5432
         options: >-
@@ -28,7 +28,7 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgres://simardeepsingh:Canada123@localhost:5432/data_hub_discovery
+      DATABASE_URL: postgres://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost:5432/${{ secrets.DB_NAME }}
 
     steps:
       - name: Checkout Code
@@ -37,7 +37,7 @@ jobs:
       - name: Set Up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: '3.9'
 
       - name: Install Dependencies
         run: |

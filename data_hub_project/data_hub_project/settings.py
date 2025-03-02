@@ -114,7 +114,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'data_hub_discovery'),
         'USER': os.getenv('POSTGRES_USER', 'simardeepsingh'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Canada123'),
-        'HOST': 'db',  # Change 'localhost' to 'db' (the Docker service name)
+        'HOST': os.getenv('DB_HOST', 'db'),  
         'PORT': '5432',
     }
 }

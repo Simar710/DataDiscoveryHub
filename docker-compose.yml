@@ -12,6 +12,8 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    networks:
+      - backend
 
   db:
     image: postgres:13
@@ -21,3 +23,9 @@ services:
       POSTGRES_PASSWORD: Canada123
     ports:
       - "5432:5432"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
