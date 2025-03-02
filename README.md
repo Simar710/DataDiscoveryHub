@@ -76,11 +76,13 @@ python manage.py runserver
 docker-compose up --build
 ```
 
+
 ### 2️⃣ Create a Superuser (For Admin Access)
 ```bash
 docker-compose exec web python manage.py createsuperuser
 ```
 **Note:** If this command does not work from the CLI, open the web container’s terminal using Docker Desktop and run:
+
 ```bash
 python manage.py createsuperuser
 ```
