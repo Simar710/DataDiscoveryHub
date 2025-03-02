@@ -16,8 +16,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-
-    dsn=os.getenv("SENTRY_DSN", "") #Read from Docker environment or .env file
+    dsn=os.getenv("SENTRY_DSN", ""), #Read from Docker environment or .env file
     # Add data like request headers and IP for users,
     # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
     integrations=[DjangoIntegration()],
@@ -77,7 +76,7 @@ ROOT_URLCONF = "data_hub_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        'DIRS': [BASE_DIR / 'data_hub_project/templates'],
+        "DIRS": [BASE_DIR / "data_hub_project/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -115,7 +114,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'data_hub_discovery'),
         'USER': os.getenv('POSTGRES_USER', 'simardeepsingh'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'Canada123'),
-        'HOST': 'db',  # Change 'localhost' to 'db' (the Docker service name)
+        'HOST': os.getenv('DB_HOST', 'db'),  
         'PORT': '5432',
     }
 }
@@ -154,8 +153,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")  
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
