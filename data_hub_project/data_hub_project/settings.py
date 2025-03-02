@@ -16,8 +16,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-
-    dsn=os.getenv("SENTRY_DSN", "") #Read from Docker environment or .env file
+    dsn=os.getenv("SENTRY_DSN", ""), #Read from Docker environment or .env file
     # Add data like request headers and IP for users,
     # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
     integrations=[DjangoIntegration()],
