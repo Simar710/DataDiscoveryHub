@@ -1,10 +1,12 @@
-name: Django CI
+name: Django CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   test:
@@ -44,8 +46,10 @@ jobs:
 
       - name: Run Migrations
         run: |
+          cd data_hub_project
           python manage.py migrate
 
       - name: Run Tests
         run: |
+          cd data_hub_project
           python manage.py test
