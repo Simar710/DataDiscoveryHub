@@ -38,8 +38,6 @@ The **Data Discovery Hub** is a Django-based web application designed to provide
   - **Usage**: Containerizes both the Django application and PostgreSQL database to ensure consistency across environments.
   - **Local Development**: Uses `docker-compose up --build` to start the application and database in isolated containers.
   - **CI/CD**: GitHub Actions uses Docker Compose to spin up the containers, run migrations, and execute tests in an isolated environment.
-- **Optional Tools (for Production)**
-  - **Nginx/WhiteNoise**: Can be used to serve static files and act as a reverse proxy in a production setup.
 
 ### 5. Error Tracking
 - **Sentry**
