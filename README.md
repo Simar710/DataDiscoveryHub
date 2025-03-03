@@ -1,6 +1,8 @@
 #  🚀 Data Discovery Hub
 
-Please check **[PROJECT_OVERVIEW.md](https://github.com/Simar710/DataDiscoveryHub/blob/main/PROJECT_OVERVIEW.md)** for details on the architecture and tech stack used in the Data Discovery Hub project.
+Please check:
+1. **[Demo Video](https://drive.google.com/file/d/1rrhKoG0sfyVpAYeokdVSNl4HNZ0mnou_/view?usp=drive_link)** to see the demo of the project. In the video, **Docker** environment is used
+2. **[PROJECT_OVERVIEW.md](https://github.com/Simar710/DataDiscoveryHub/blob/main/PROJECT_OVERVIEW.md)** for details on the architecture and tech stack used in the Data Discovery Hub project.
 
 A Django-based **data discovery platform** with **PostgreSQL, Docker, and Sentry for error tracking**.
 
